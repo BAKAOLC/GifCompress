@@ -38,6 +38,7 @@ public static class GIFsicle
             while ((osize = process.StandardOutput.BaseStream.Read(buffer, 0, 2048)) > 0)
                 ms.Write(buffer, 0, osize);
             process.WaitForExit();
+            ms.Seek(0, SeekOrigin.Begin);
             return ms;
         });
     }
